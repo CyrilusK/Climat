@@ -7,6 +7,8 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var searchTextField: UITextField!
     
+    var weatherManager = WeatherManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         searchTextField.delegate = self
@@ -23,6 +25,9 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         cityLabel.text = textField.text
+        if let cityName = textField.text {
+            weatherManager.fetchWeather(cityName: cityName)
+        }
         textField.text = ""
     }
     
