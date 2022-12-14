@@ -14,13 +14,13 @@ class WeatherViewController: UIViewController {
         super.viewDidLoad()
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
-        locationManager.requestLocation()
+        locationManager.startUpdatingLocation()
         searchTextField.delegate = self
         weatherManager.delegate = self
     }
     
     @IBAction func searchCity(_ sender: UIButton) {
-        locationManager.requestLocation()
+        locationManager.startUpdatingLocation()
     }
     
 }
